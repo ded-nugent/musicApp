@@ -1,4 +1,4 @@
-$(document).ready(function(){
+
     // Your web app's Firebase configuration
     var firebaseConfig = {
       apiKey: "AIzaSyCyCbn5MvoPEzdxW_74N-f_cj0hm88IJBg",
@@ -241,6 +241,9 @@ $(document).ready(function(){
 //                   let relatedBand = $('<div>');
 //                         relatedBand.attr('class', 'relatedArtist')
 
+
+//lastFMevent();
+
 //                   let relatedBandPic = $('<img>')
 //                         relatedBandPic.attr('class', 'relatedArtistPic')
 //                   let relatedBandName = $('<p>')
@@ -365,4 +368,5 @@ $(document).ready(function(){
 
                     })  
     }
-})   
+
+

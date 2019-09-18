@@ -1,5 +1,4 @@
 
-    
 
 
 $(".form-search").submit(function(e) {
@@ -14,7 +13,7 @@ $(".form-search").submit(function(e) {
 
         search1 = search.replace(re, '+');
         
-        let accessToken = "BQDwwLauFW_DjkaeAG7lyz-JcZCYeWpTTQWZ7Mbk36lnl-sYBi7n0YQByE7Sww7etXFUgAmv62UrHsi130U_ZfNiGjROV0uHgm69pRZXbIOH4GrZ2H3c2fWQjZl2wfYuwg-CYimQh37owtLg1lhV9-M6xD0eVRs"
+        let accessToken = "BQC3RKbH3KLfAzzb4U92AesuXq_R5KYJpXKrsBzWTAKZdOW_W8mWeATf1j-HGbvMVqs7-BnAvuRQspl8btXQOh8jKs_fnKMvlYSWbmfWixhiMQCvoITitpccRY7XWTxnTytR8r1j71pdC2NxnkDFwzDcTEmzW4Q"
         let spotifyApi = 'https://api.spotify.com/v1/search?query=' + search1 + '&type=artist'
         $.ajax({
             url: spotifyApi,
@@ -67,7 +66,7 @@ $(".form-search").submit(function(e) {
             
           
           let lastFM_URL= "https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=" + search1 + "&api_key=f917c10d1df728ef9f74047a980fb96b&format=json";        
-          let x = "";
+          
       
           $.ajax({
               url: lastFM_URL,
@@ -80,7 +79,7 @@ $(".form-search").submit(function(e) {
                   $('#bio').html(lastFMsummary);
                   $("#artistName").text(response.artist.name);
                   
-                  for (let i = 0; i < 5; i++){
+                  for (let i = 0; i < 6; i++){
                       //console.log(response.artist.similar.artist[i])
                       
                       let relatedBand = $('<div>');
@@ -90,7 +89,7 @@ $(".form-search").submit(function(e) {
                             relatedBandPic.attr('class', 'relatedArtistPic')
                       let relatedBandName = $('<p>')
                       let band = response.artist.similar.artist[i].name
-                     console.log(response.artist.similar.artist)
+                          
                       let testUrl = 'https://rest.bandsintown.com/artists/' + band + '?app_id=1e140eabdce95250b1ad6075934a113d'
                       let bandPic = ''
                           $.ajax({
@@ -111,32 +110,31 @@ $(".form-search").submit(function(e) {
                                           relatedBand.append(relatedBandPic)
                                           relatedBand.append(relatedBandName)
                                           $('#relatedBand').append(relatedBand)
-                                          $(document).on('click', '.link', relatedMove)
+                                         
                   
                                           //$('#relatedBand').attr('class', 'border')
                                   })
+                               
                           }
                           
-                    
+                   
                   })    
-           function relatedMove() {
-                    //   console.log($(this).attr('bandName'))
-                     
-                      
-                      
-                      let storeArtist = $(this).attr('bandName')
-                      localStorage.setItem('artist', JSON.stringify(storeArtist))
-                      let relatedArtistLocal = storage.getItem(artist)
-                      $(".form-search").submit(function(){
-                          
-                      })
-                    //   console.log(newArtist)
-                  
-                      location.href = 'artistPage.html'   
-                  }       
+        
+            
     })
 
+   
+ 
 
+      
+      
+    
+  
+      
+    
+        
+    
+    
 
 
 
